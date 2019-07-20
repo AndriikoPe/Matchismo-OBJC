@@ -59,11 +59,11 @@ class PlayingCard: Card {
   
   // Returns 0 if no match, positive Int otherwise
   override func match(_ otherCards: [Card]?) -> Int {
-    return getScore(rank: rank, comparingToCards: otherCards ?? []) +
-      getScore(suit: suit, comparingToCards: otherCards ?? [])
+    return getScore(forRank: rank, comparingToCards: otherCards ?? []) +
+      getScore(forSuit: suit, comparingToCards: otherCards ?? [])
   }
   
-  private func getScore(suit: String, comparingToCards cards: [Card]) -> Int {
+  private func getScore(forSuit suit: String, comparingToCards cards: [Card]) -> Int {
     var score = 0
     switch cards.count {
     case 1:
@@ -85,7 +85,7 @@ class PlayingCard: Card {
     return score
   }
   
-  private func getScore(rank: Int, comparingToCards cards: [Card]) -> Int {
+  private func getScore(forRank rank: Int, comparingToCards cards: [Card]) -> Int {
     var score = 0
     switch cards.count {
     case 1:
